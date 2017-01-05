@@ -14,8 +14,7 @@ class Chef
       end
 
       def get_key
-        item = ChefVault::Item.load(@new_resource.data_bag,
-                                    @new_resource.item)
+        item = chef_vault_item('_default-pgp-keys', 'brighter-public')
         item[@new_resource.json_key]
       end
     end
